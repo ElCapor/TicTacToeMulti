@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "cstdint": "cpp"
+        "cstdint": "cpp",
+        "xtree": "cpp",
+        "vector": "cpp"
     }
 }
