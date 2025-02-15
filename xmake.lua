@@ -9,6 +9,11 @@ target("Server")
     add_includedirs("Network/include")
     add_packages("asio")
 
+target("Common")
+    set_kind("static")
+    add_files("Common/*.cpp")
+    add_includedirs("Common/include")
+
 target("UnitTest")
     set_kind("binary")
     add_files("UnitTest/**.cpp")
@@ -16,4 +21,5 @@ target("UnitTest")
     add_includedirs("Common/include")
     add_includedirs("Server/include")
     add_packages("catch2")
+    add_deps("Common")
     

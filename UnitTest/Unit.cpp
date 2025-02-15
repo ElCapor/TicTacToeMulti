@@ -129,3 +129,45 @@ TEST_CASE("EVENTS SYSTEM", "[Events]")
         }
     }
 }
+
+/// Test Room
+#include <Room.hpp>
+
+TEST_CASE("ROOM SYSTEM", "[Room]")
+{
+    struct Player{
+        int id;
+        using id_type = typename int;
+    };
+
+    Room<Player> room(0,2);
+    REQUIRE(room.GetID() == 0);
+    REQUIRE(room.GetMaxPlayers() == 2);
+    REQUIRE(room.GetPlayerCount() == 0);
+
+    Player player1{1};
+    Player player2{2};
+    room.AddPlayer(player1);
+    room.AddPlayer(player2);
+    REQUIRE(room.GetPlayerCount() == 2);
+    REQUIRE(room.IsFull() == true);
+
+    room.RemovePlayer(player1);
+    REQUIRE(room.GetPlayerCount() == 1);
+
+    room.RemovePlayer(player2);
+    REQUIRE(room.GetPlayerCount() == 0);
+
+    room.AddPlayer(player1);
+    REQUIRE(room.GetPlayerCount() == 1);
+
+    auto player = room.GetPlayer(1);
+    REQUIRE(player.has_value());
+    REQUIRE(player.value().id == 1);
+    REQUIRE(room.IsFull() == false);
+    REQUIRE(room.IsEmpty() == false);
+
+    room.ClearPlayers();
+    REQUIRE(room.IsFull() == false);
+    REQUIRE(room.IsEmpty() == true);
+}
