@@ -1,4 +1,13 @@
-#pragma once
+/**
+ * @file Events.hpp
+ * @author ElCapor (104172250+ElCapor@users.noreply.github.com)
+ * @brief Header-Only Events System
+ * @version 0.1
+ * @date 2025-02-15
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 #ifndef EVENTS_HPP
 #define EVENTS_HPP
 #include <unordered_set>
@@ -9,28 +18,6 @@ https://www.linkedin.com/pulse/students-take-implementing-event-systems-games-us
 
 Took the headers and implenting all the functions by myself - elcapor
 */
-
-/*
-SINGLETON Implementation
-*/
-template <typename T>
-class Singleton {
-public:
-    static T& getInstance() {
-        static T instance; // This will be created only once
-        return instance;
-    }
-
-    // Delete copy constructor and assignment operator to prevent duplication
-    Singleton(const Singleton&) = delete;
-    Singleton& operator=(const Singleton&) = delete;
-
-protected:
-    Singleton() = default;
-    virtual ~Singleton() = default;
-};
-
-
 
 template<typename T>
 using UniqueContainer = std::unordered_set<T>;
@@ -80,21 +67,23 @@ private:
   UniqueContainer<EventType> m_subscribeList;
 };
 
-
-// assume singleton<T> exists
-
-template<typename T>
-using UniqueContainer = std::unordered_set<T>;
-
 template <typename EventType>
-class EventManager : public Singleton<EventManager<EventType>>
+class EventManager
 {
 public:
   void Init();
   void Update();
   void Exit();
 
-  void RemoveListener(EventListener<EventType> *listener);
+  void RemoveListener(EventListener<EventType> *listener)
+  {
+    // this is a sort of unsubscribe but we don't know what event type the listener is bound to, so we just
+    // remove the listener from all events if there's any
+    for (auto& event : m_listeners)
+    {
+        event.second.erase(std::remove(event.second.begin(), event.second.end(), listener), event.second.end());
+    }
+  }
   void SendEvent(Event<EventType> *sent)
   {
     for (auto listener : m_listeners[sent->m_type])

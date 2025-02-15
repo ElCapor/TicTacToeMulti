@@ -13,6 +13,7 @@
 #include <catch2/catch_test_macros.hpp>
 
 /// Modules to test
+#include <Singleton.hpp>
 #include <Events.hpp>
 
 /// Test Events
@@ -66,15 +67,22 @@ TEST_CASE("EVENTS SYSTEM", "[Events]")
             }
         }
     };
+
+    class TestEventManager: public EventManager<TestEvent>, public Singleton<TestEventManager>
+    {
+    public:
+        TestEventManager() : EventManager<TestEvent>() {}
+    };
+    
     SECTION("Singleton")
     {
-        auto& instance = EventManager<TestEvent>::getInstance();
+        auto& instance = TestEventManager::getInstance();
         REQUIRE(instance.m_listeners.size() == 0);
     }
 
     SECTION("Event Listeners")
     {
-        auto& instance = EventManager<TestEvent>::getInstance();
+        auto& instance = TestEventManager::getInstance();
         TestListener listener;
         SECTION("Subscribing")
         {
@@ -107,6 +115,17 @@ TEST_CASE("EVENTS SYSTEM", "[Events]")
             REQUIRE(instance.m_listeners[TEST_EVENT_1].size() == 0);
             REQUIRE(instance.m_listeners[TEST_EVENT_2].size() == 0);
             REQUIRE(instance.m_listeners[TEST_EVENT_3].size() == 0);
+        }
+
+        SECTION("Removing Listener")
+        {
+            // Nothing bad should happen if we remove a listener that isn't subscribed to anything
+            REQUIRE_NOTHROW(instance.RemoveListener(&listener));
+
+            instance.Subscribe(TEST_EVENT_1, &listener);
+            REQUIRE(instance.m_listeners[TEST_EVENT_1].size() == 1);
+            instance.RemoveListener(&listener);
+            REQUIRE(instance.m_listeners[TEST_EVENT_1].size() == 0);
         }
     }
 }
