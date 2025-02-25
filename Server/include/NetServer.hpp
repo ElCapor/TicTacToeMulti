@@ -13,6 +13,7 @@
 #include <Network.h>
 #include <TicMessages.hpp>
 #include <Logger.hpp>
+#include <RoomManager.hpp>
 
 class NetServer : public net::server_interface<TicMessages>
 {

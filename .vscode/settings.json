@@ -11,6 +11,9 @@
         "xhash": "cpp",
         "xstring": "cpp",
         "xutility": "cpp",
-        "forward_list": "cpp"
+        "forward_list": "cpp",
+        "chrono": "cpp",
+        "codecvt": "cpp",
+        "xlocale": "cpp"
     }
 }
