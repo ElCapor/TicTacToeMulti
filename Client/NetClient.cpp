@@ -1,5 +1,6 @@
 #include <NetClient.hpp>
 #include <Network.h>
+#include <NetEvents.hpp>
 
 class internal_client : public net::client_interface<TicMessages>
 {
@@ -18,24 +19,28 @@ NetClient::NetClient()
 	this->client = new internal_client();
 }
 
-inline void NetClient::ConnectToServer()
+void NetClient::ConnectToServer()
 {
 	client->Connect("127.0.0.1", 62323);
 }
 
-inline void NetClient::DisconnectFromServer()
+void NetClient::DisconnectFromServer()
 {
 	client->Disconnect();
 }
 
-inline void NetClient::Update()
+void NetClient::Update()
 {
 	if (client->IsConnected())
 	{
 		if (!client->Incoming().empty())
 		{
 			auto msg = client->Incoming().pop_front();
-			
+			if (msg.msg.header.id == ConnectionEstablished)
+			{
+				ConnectionEstablishedEvent event;
+				NetEventsManager::getInstance().SendEvent(&event);
+			}
 		}
 	}
 }

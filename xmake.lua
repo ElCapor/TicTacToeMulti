@@ -34,3 +34,12 @@ target("UnitTest")
     add_packages("catch2")
     add_deps("Common")
     
+task("test")
+    set_menu({usage="xmake test", description="Server & Client test", options={}})
+    on_run(function(target)
+        import("core.base.task")
+        task.run("build", {}, "all")
+
+        task.run("run", {detach=false}, "Server")
+        task.run("run", {detach=true}, "Client")
+    end)

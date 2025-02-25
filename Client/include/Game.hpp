@@ -12,6 +12,10 @@
 #define GAME_H
 #include <memory>
 #include <GameState.hpp>
+#include <NetClient.hpp>
+
+class NetClient;
+class GameEventListener;
 
 class Game
 {
@@ -20,6 +24,8 @@ int m_Height;
 const char* m_windowTitle;
 
 GameState m_GameState;
+GameEventListener* m_eventListener;
+NetClient* m_netclient;
 public:
     Game(int width, int height, const char* windowTitle);
     void OnLoad();

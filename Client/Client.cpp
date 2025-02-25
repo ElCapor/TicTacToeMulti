@@ -12,6 +12,7 @@
 
 int main()
 {
-    
+    Game game(800, 600, "Client");
+    game.Main();
     return 0;
 }
