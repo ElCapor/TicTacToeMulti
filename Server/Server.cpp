@@ -8,9 +8,15 @@
  * @copyright Copyright (c) 2025
  * 
  */
-#include <NetBase.h>
+#include <NetServer.hpp>
 
 int main()
 {
+    NetServer server(62323);
+    server.Start();
+    while (true)
+    {
+        server.Update();
+    }
     return 0;
 }
