@@ -22,6 +22,9 @@ enum TicMessages {
 	TicMessages_ClientPing, // Client replying back
 
 
+	TicMessages_ClientDisconnect, // client disconnected
+	TicMessages_ServerDisconnect, // server is going offline
+
 };
 
 #endif // TIC_MESSAGES_

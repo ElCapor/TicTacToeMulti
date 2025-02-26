@@ -26,6 +26,8 @@ void NetClient::ConnectToServer()
 
 void NetClient::DisconnectFromServer()
 {
+	auto msg = net::new_message<TicMessages>(TicMessages::TicMessages_ClientDisconnect);
+	client->Send(msg);
 	client->Disconnect();
 }
 
