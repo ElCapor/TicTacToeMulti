@@ -75,7 +75,7 @@ public:
         if (idx == -1)
         {
             CreateRoom();
-            AssignNewRoomToPlayer(player); // retry assigning a room in case there was not any available
+            return AssignNewRoomToPlayer(player); // retry assigning a room in case there was not any available
         } else{
             m_rooms[idx].AddPlayer(player);
             return m_rooms[idx];

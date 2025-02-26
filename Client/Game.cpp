@@ -11,8 +11,8 @@ void Game::OnConnectionEstablished(ConnectionEstablishedEvent *event)
 void Game::OnServerAssignedRoom(ServerAssignedRoomEvent *event)
 {
 	TraceLog(LOG_INFO, "Server Assigned Room");
-	TraceLog(LOG_INFO, "Room ID: ", event->GetRoomID());
-	TraceLog(LOG_INFO, "Player Count: ", event->GetPlayerCount());
+	TraceLog(LOG_INFO, "Room ID: %d", event->GetRoomID());
+	TraceLog(LOG_INFO, "Player Count: %d", event->GetPlayerCount());
 
 	m_GameState = GameState::WaitingForPlayers;
 }
@@ -34,7 +34,7 @@ void Game::OnEvent(Event<NetEvents> *received)
 			OnConnectionLost(static_cast<ConnectionLostEvent*>(received));
 			break;
 		case ServerAssignedRoom:
-			OnServerAssignedRoom(static_cast<ServerAssignedRoomEvent*>(received));
+			OnServerAssignedRoom((ServerAssignedRoomEvent*)(received));
 			break;
 		case RoomFull:
 			break;

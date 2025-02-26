@@ -49,8 +49,8 @@ void NetClient::Update()
 				auto data = msg.msg;
 				int playerCount;
 				int roomID;
-				data >> playerCount;
 				data >> roomID;
+				data >> playerCount;
 				ServerAssignedRoomEvent* event = new ServerAssignedRoomEvent(roomID, playerCount);
 				std::cout << "ROOM ID " << event->GetRoomID() << std::endl;
 				// This works fine, so i have 0 idea why the event listener doesnt work

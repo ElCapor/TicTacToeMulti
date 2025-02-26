@@ -22,7 +22,8 @@ TEST_CASE("EVENTS SYSTEM", "[Events]")
     enum TestEvent{
         TEST_EVENT_1,
         TEST_EVENT_2,
-        TEST_EVENT_3
+        TEST_EVENT_3,
+        TEST_EVENT_DATA
     };
 
     class TestEvent1: public Event<TestEvent>
@@ -43,6 +44,18 @@ TEST_CASE("EVENTS SYSTEM", "[Events]")
         TestEvent3() : Event(TEST_EVENT_3) {}
     };
 
+    class EventWithData: public Event<TestEvent>
+    {
+        int data;
+    public:
+        EventWithData(int data) : Event(TEST_EVENT_DATA), data(data) {}
+
+        int GetData() const
+        {
+            return data;
+        }
+    };
+
 
     class TestListener: public EventListener<TestEvent>
     {
@@ -50,6 +63,8 @@ TEST_CASE("EVENTS SYSTEM", "[Events]")
         bool event1Received = false;
         bool event2Received = false;
         bool event3Received = false;
+        bool eventDataReceived = false;
+        bool eventDataReceivedData = false; // did we recieve the data inside the event too ??
     public:
         void OnEvent(Event<TestEvent> *received) override
         {
@@ -63,6 +78,13 @@ TEST_CASE("EVENTS SYSTEM", "[Events]")
                     break;
                 case TEST_EVENT_3:
                     event3Received = true;
+                    break;
+                case TEST_EVENT_DATA:
+                    eventDataReceived = true;
+                    if (((EventWithData*)received)->GetData() == 123)
+                    {
+                        eventDataReceivedData = true;
+                    }
                     break;
             }
         }
@@ -126,6 +148,27 @@ TEST_CASE("EVENTS SYSTEM", "[Events]")
             REQUIRE(instance.m_listeners[TEST_EVENT_1].size() == 1);
             instance.RemoveListener(&listener);
             REQUIRE(instance.m_listeners[TEST_EVENT_1].size() == 0);
+        }
+
+        SECTION("Sending Data")
+        {
+            instance.Subscribe(TEST_EVENT_DATA, &listener);
+            EventWithData eventWithData(123);
+            REQUIRE(eventWithData.GetData() == 123);
+            instance.SendEvent(&eventWithData);
+            REQUIRE(listener.eventDataReceived == true);
+            REQUIRE(listener.eventDataReceivedData == true);
+        }
+
+        SECTION("Sending Data with a pointer")
+        {
+            instance.Subscribe(TEST_EVENT_DATA, &listener);
+            EventWithData* eventWithData = new EventWithData(123);
+            REQUIRE(eventWithData->GetData() == 123);
+            instance.SendEvent(eventWithData);
+            REQUIRE(listener.eventDataReceived == true);
+            REQUIRE(listener.eventDataReceivedData == true);
+            delete eventWithData;
         }
     }
 }

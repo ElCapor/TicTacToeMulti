@@ -44,7 +44,8 @@ protected:
         auto room = room_ret.value();
         Logger::Info("Assigned room @", room.GetID());
         msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerAssignedRoom);
-        msg << room.GetID() << room.GetPlayerCount();
+        msg << room.GetPlayerCount();
+        msg << room.GetID();
         client->Send(msg);
 
 
@@ -53,7 +54,7 @@ protected:
 
     void OnClientDisconnect(std::shared_ptr<net::connection<TicMessages>> client) override
     {
-
+        Logger::Info("Client Disconnected @", client->GetID());
     }
 
     void OnMessage(std::shared_ptr<net::connection<TicMessages>> client, net::message<TicMessages>& message)
