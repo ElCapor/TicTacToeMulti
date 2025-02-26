@@ -36,13 +36,29 @@ void NetClient::Update()
 		if (!client->Incoming().empty())
 		{
 			auto msg = client->Incoming().pop_front();
-			if (msg.msg.header.id == ConnectionEstablished)
+			if (msg.msg.header.id == TicMessages::TicMessages_ServerAccept)
 			{
 				ConnectionEstablishedEvent event;
 				NetEventsManager::getInstance().SendEvent(&event);
+			} else if (msg.msg.header.id == TicMessages::TicMessages_ServerError)
+			{
+				ConnectionLostEvent event;
+				NetEventsManager::getInstance().SendEvent(&event);
+			} else if (msg.msg.header.id == TicMessages::TicMessages_ServerAssignedRoom)
+			{
+				auto data = msg.msg;
+				int playerCount;
+				int roomID;
+				data >> playerCount;
+				data >> roomID;
+				ServerAssignedRoomEvent* event = new ServerAssignedRoomEvent(roomID, playerCount);
+				std::cout << "ROOM ID " << event->GetRoomID() << std::endl;
+				// This works fine, so i have 0 idea why the event listener doesnt work
+				NetEventsManager::getInstance().SendEvent(event);
 			}
 		}
 	}
+	
 }
 
 #include <algorithm>

@@ -13,10 +13,13 @@
 
 
 enum TicMessages {
-	ServerAccept, // server accepted your connection
-	
-	ServerPing, // server is pinging you
-	ClientPing, // Client replying back
+	TicMessages_ServerAccept, // server accepted your connection
+	TicMessages_ServerError, // server encountered an error
+
+	TicMessages_ServerAssignedRoom, // server assigned a room for client
+
+	TicMessages_ServerPing, // server is pinging you
+	TicMessages_ClientPing, // Client replying back
 
 
 };

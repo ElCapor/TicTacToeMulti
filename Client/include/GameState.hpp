@@ -15,13 +15,15 @@ enum class GameState
 {
 	WaitingForServer,
     WaitingForPlayers,
+    WaitingForGameStart,
     GamePlayerReady,
     GameStart,
     PlayerTurn,
     EnemyTurn,
     GameWin,
     GameLose,
-    GameRematch
+    GameRematch,
+    ConnectionLost
 };
 
 #endif // GAMESTATE_H

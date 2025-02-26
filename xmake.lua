@@ -16,6 +16,7 @@ target("Server")
     add_includedirs("Common/include")
     add_includedirs("Server/include")
     add_packages("asio", "raylib")
+    add_deps("Common")
 
 target("Client")
     add_includedirs("Common/include")

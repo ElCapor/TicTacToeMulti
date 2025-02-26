@@ -40,10 +40,20 @@ class ConnectionLostEvent: public Event<NetEvents>
 
 class ServerAssignedRoomEvent: public Event<NetEvents>
 {
+    
     int roomID;
     int playerCount;
     public:
         ServerAssignedRoomEvent() : Event(ServerAssignedRoom) {}
+        ServerAssignedRoomEvent(int roomID, int playerCount) : Event(ServerAssignedRoom), roomID(roomID), playerCount(playerCount) {}
+
+        int GetRoomID() const {
+            return roomID;
+        }
+
+        int GetPlayerCount() const {
+            return playerCount;
+        }
 };
 
 class RoomFullEvent: public Event<NetEvents>

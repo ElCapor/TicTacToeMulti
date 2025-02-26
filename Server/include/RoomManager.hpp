@@ -69,7 +69,7 @@ public:
         return cpp::fail(-1);
     }
 
-    void AssignNewRoomToPlayer(Player player)
+    cpp::result<Room<Player>&, int> AssignNewRoomToPlayer(Player player)
     {
         int idx = GetAvailableRoomIndex();
         if (idx == -1)
@@ -78,7 +78,9 @@ public:
             AssignNewRoomToPlayer(player); // retry assigning a room in case there was not any available
         } else{
             m_rooms[idx].AddPlayer(player);
+            return m_rooms[idx];
         }
+        return cpp::fail(-1);
     }
 
     void RemovePlayerFromRoom(Player player)

@@ -14,9 +14,11 @@
 #include <TicMessages.hpp>
 #include <Logger.hpp>
 #include <RoomManager.hpp>
+#include <Player.hpp>
 
 class NetServer : public net::server_interface<TicMessages>
 {
+    RoomManager m_roomManager;
 public:
     NetServer(unsigned short port) : net::server_interface<TicMessages>(port)
     {
@@ -27,8 +29,25 @@ protected:
     bool OnClientConnect(std::shared_ptr<net::connection<TicMessages>> client) override
     {
         Logger::Debug(false, "[SERVER] Client Connected @", client->GetID());
-        auto msg = net::new_message<TicMessages>(TicMessages::ServerAccept);
+        auto msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerAccept);
         client->Send(msg);
+
+        Player player{(int)client->GetID()};
+        auto room_ret = m_roomManager.AssignNewRoomToPlayer(player);
+        if (room_ret.has_error())
+        {
+            Logger::Error("Failed to assign room to player @", client->GetID());
+            msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerError);
+            client->Send(msg);
+            return false;
+        }
+        auto room = room_ret.value();
+        Logger::Info("Assigned room @", room.GetID());
+        msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerAssignedRoom);
+        msg << room.GetID() << room.GetPlayerCount();
+        client->Send(msg);
+
+
         return true;
     }
 
