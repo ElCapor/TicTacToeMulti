@@ -13,18 +13,18 @@
 #include <memory>
 #include <GameState.hpp>
 #include <NetClient.hpp>
+#include <Events.hpp>
+#include <NetEvents.hpp>
 
 class NetClient;
-class GameEventListener;
 
-class Game
+class Game : public EventListener<NetEvents>
 {
 int m_Width;
 int m_Height;
 const char* m_windowTitle;
 
 GameState m_GameState;
-GameEventListener* m_eventListener;
 NetClient* m_netclient;
 public:
     Game(int width, int height, const char* windowTitle);
@@ -33,6 +33,11 @@ public:
     void OnUpdate();
     void OnDraw();
     void Main();
+public:
+    void OnEvent(Event<NetEvents> *received) override;
+
+private:
+    void OnConnectionEstablished(ConnectionEstablishedEvent *event);
 };
 
 #endif // GAME_H

@@ -14,6 +14,12 @@
 #include <type_traits>
 #include <Result.hpp>
 
+enum RoomState {
+    RoomState_Public,
+    RoomState_Private,
+    RoomState_Locked
+};
+
 // Helper trait to check if `T` has a member `id` of type `int`
 template <typename T, typename = void>
 struct has_int_id : std::false_type {};
@@ -42,9 +48,10 @@ private:
     int id;
     int maxPlayers;
     std::vector<_Plr> players;
+    RoomState state;
     
 public:
-    Room(int _id, int _maxPlayers) : id(_id), maxPlayers(_maxPlayers) {
+    Room(int _id, int _maxPlayers) : id(_id), maxPlayers(_maxPlayers), state(RoomState_Public) {
         players.reserve(maxPlayers);
     }
     ~Room() {}
@@ -108,6 +115,27 @@ public:
             }
         }
     }
+
+    RoomState GetState() const {
+        return state;
+    }
+
+    void SetState(RoomState _state) {
+        state = _state;
+    }
+
+    bool IsPublic() const {
+        return state == RoomState_Public;
+    }
+
+    bool IsPrivate() const {
+        return state == RoomState_Private;
+    }
+
+    bool IsLocked() const {
+        return state == RoomState_Locked;
+    }
+    
 };
 
 #endif // !ROOM_HPP

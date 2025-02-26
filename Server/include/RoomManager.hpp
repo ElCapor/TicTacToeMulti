@@ -13,6 +13,7 @@
 #include <Room.hpp>
 #include <Player.hpp>
 #include <vector>
+#include <Logger.hpp>
 
 class RoomManager
 {
@@ -22,7 +23,19 @@ class RoomManager
 public:
     RoomManager(int maxRoomSize = 2) : maxRoomSize(maxRoomSize)
     {
+        CreateRoom();
+    }
 
+    int GetAvailableRoomIndex()
+    {
+        for (int i = 0; i < m_rooms.size(); i++)
+        {
+            if (!m_rooms[i].IsFull() && m_rooms[i].IsPublic())
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     cpp::result<Room<Player>&, int> CreateRoom()
@@ -54,6 +67,38 @@ public:
             }
         }
         return cpp::fail(-1);
+    }
+
+    void AssignNewRoomToPlayer(Player player)
+    {
+        int idx = GetAvailableRoomIndex();
+        if (idx == -1)
+        {
+            CreateRoom();
+            AssignNewRoomToPlayer(player); // retry assigning a room in case there was not any available
+        } else{
+            m_rooms[idx].AddPlayer(player);
+        }
+    }
+
+    void RemovePlayerFromRoom(Player player)
+    {
+        auto ret = GetRoomByPlayer(player);
+        if (!ret.has_value())
+        {
+            Logger::Error("Attempt to remove player ", player.id, " But he was not found...");
+            return;
+        }
+
+        Room<Player>& room = ret.value();
+        room.RemovePlayer(player);
+
+        // Garbage Collector lol
+        if (room.IsEmpty())
+        {
+            m_rooms.erase(std::remove_if(m_rooms.begin(), m_rooms.end(), [&room](Room<Player>& r){ return &r == &room; }), m_rooms.end());
+            maxRoomIndex = m_rooms.size() - 1;
+        }
     }
 };
 

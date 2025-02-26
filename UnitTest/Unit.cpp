@@ -171,3 +171,53 @@ TEST_CASE("ROOM SYSTEM", "[Room]")
     REQUIRE(room.IsFull() == false);
     REQUIRE(room.IsEmpty() == true);
 }
+
+#include <RoomManager.hpp>
+TEST_CASE("ROOM MANAGER SYSTEM", "[RoomManager]")
+{
+    RoomManager roomManager;
+    REQUIRE(roomManager.GetAvailableRoomIndex() == 0);
+
+    Player player1{1};
+    Player player2{2};
+    Player player3{3};
+    Player player4{4};
+
+    SECTION("Adding & Removing Players")
+    {
+        roomManager.AssignNewRoomToPlayer(player1);
+        REQUIRE(roomManager.GetAvailableRoomIndex() == 0);
+        REQUIRE((roomManager.GetRoom(0).has_value() && roomManager.GetRoom(0).value().GetID() == 0));
+        REQUIRE((roomManager.GetRoom(0).has_value() && roomManager.GetRoom(0).value().IsFull() == false));
+        roomManager.AssignNewRoomToPlayer(player2);
+        REQUIRE(roomManager.GetAvailableRoomIndex() == -1);
+        REQUIRE((roomManager.GetRoom(0).has_value() && roomManager.GetRoom(0).value().GetID() == 0));
+        REQUIRE((roomManager.GetRoom(0).has_value() && roomManager.GetRoom(0).value().IsFull() == true));
+        roomManager.AssignNewRoomToPlayer(player3);
+        REQUIRE(roomManager.GetAvailableRoomIndex() == 1);
+        REQUIRE((roomManager.GetRoom(1).has_value() && roomManager.GetRoom(1).value().GetID() == 1));
+        REQUIRE((roomManager.GetRoom(1).has_value() && roomManager.GetRoom(1).value().IsFull() == false));
+        roomManager.AssignNewRoomToPlayer(player4);
+        REQUIRE(roomManager.GetAvailableRoomIndex() == -1);
+        REQUIRE((roomManager.GetRoom(1).has_value() && roomManager.GetRoom(1).value().GetID() == 1));
+        REQUIRE((roomManager.GetRoom(1).has_value() && roomManager.GetRoom(1).value().IsFull() == true));
+
+        roomManager.GetRoom(0).value().SetState(RoomState_Locked);
+
+        roomManager.RemovePlayerFromRoom(player1);
+        REQUIRE(roomManager.GetAvailableRoomIndex() == -1);
+        REQUIRE((roomManager.GetRoom(0).has_value() && roomManager.GetRoom(0).value().GetID() == 0));
+        REQUIRE((roomManager.GetRoom(0).has_value() && roomManager.GetRoom(0).value().IsFull() == false));
+        roomManager.RemovePlayerFromRoom(player2);
+        REQUIRE(roomManager.GetAvailableRoomIndex() == -1);
+        REQUIRE((roomManager.GetRoom(0).has_error() == true));
+
+        roomManager.RemovePlayerFromRoom(player3);
+        REQUIRE(roomManager.GetAvailableRoomIndex() == 0);
+        REQUIRE((roomManager.GetRoom(1).has_value() && roomManager.GetRoom(1).value().GetID() == 1));
+        REQUIRE((roomManager.GetRoom(1).has_value() && roomManager.GetRoom(1).value().IsFull() == false));
+        roomManager.RemovePlayerFromRoom(player4);
+        REQUIRE(roomManager.GetAvailableRoomIndex() == -1);
+    }
+    
+}

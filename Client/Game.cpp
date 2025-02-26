@@ -3,36 +3,33 @@
 #include <NetEvents.hpp>
 
 
-/* Event Listener*/
-class GameEventListener: public EventListener<NetEvents>
+
+void Game::OnConnectionEstablished(ConnectionEstablishedEvent *event)
 {
-	void OnConnectionEstablished(ConnectionEstablishedEvent *event)
+	TraceLog(LOG_INFO, "Connection Established");
+}
+
+void Game::OnEvent(Event<NetEvents> *received)
+{
+	switch (received->m_type)
 	{
-		TraceLog(LOG_INFO, "Connection Established");
+		case ConnectionEstablished:
+			OnConnectionEstablished(static_cast<ConnectionEstablishedEvent*>(received));
+			break;
+		case ConnectionLost:
+			break;
+		case ServerAssignedRoom:
+			break;
+		case RoomFull:
+			break;
+		case ServerGameStarted:
+			break;
+		case ServerGameOtherPlayerPlaced:
+			break;
+		case ServerGameClientTurn:
+			break;
 	}
-public:
-	void OnEvent(Event<NetEvents> *received) override
-	{
-		switch (received->m_type)
-		{
-			case ConnectionEstablished:
-				OnConnectionEstablished(static_cast<ConnectionEstablishedEvent*>(received));
-				break;
-			case ConnectionLost:
-				break;
-			case ServerAssignedRoom:
-				break;
-			case RoomFull:
-				break;
-			case ServerGameStarted:
-				break;
-			case ServerGameOtherPlayerPlaced:
-				break;
-			case ServerGameClientTurn:
-				break;
-		}
-	}
-};
+}
 
 /* Draw Functions*/
 void DrawWaitingForServer()
@@ -46,7 +43,6 @@ void DrawWaitingForServer()
 Game::Game(int width = 800, int height = 600, const char* windowTitle = "Game") 
 : m_Width(width), m_Height(height), m_windowTitle(windowTitle), m_GameState(GameState::WaitingForServer)
 {
-	m_eventListener = new GameEventListener();
 	m_netclient = new NetClient();
 }
 
@@ -59,7 +55,7 @@ void Game::OnLoad()
 	for (int i = NetEvents::ConnectionEstablished; i < NetEvents::NetEvents_End; i++)
 	{
 		// subscribe to the event
-		NetEventsManager::getInstance().Subscribe(static_cast<NetEvents>(i), m_eventListener);
+		NetEventsManager::getInstance().Subscribe(static_cast<NetEvents>(i), this);
 	}
 
 	m_netclient->ConnectToServer();
