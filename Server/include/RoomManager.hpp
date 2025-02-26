@@ -48,8 +48,12 @@ public:
     {
         for (auto& room : m_rooms)
         {
-            if (room.GetPlayer().has_value() && room.GetPlayer().value() == player)
+            if (room.GetPlayer(player.id).has_value())
+            {
+                return room;
+            }
         }
+        return cpp::fail(-1);
     }
 };
 
