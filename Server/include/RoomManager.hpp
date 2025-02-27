@@ -61,6 +61,11 @@ public:
     {
         for (auto& room : m_rooms)
         {
+            for (auto& p : room.GetPlayers())
+            {
+                std::cout << p.id << " " << player.id << std::endl;
+                std::cout << room.GetPlayer(player.id).has_value() << std::endl;
+            }
             if (room.GetPlayer(player.id).has_value())
             {
                 return room;
@@ -93,7 +98,13 @@ public:
         }
 
         Room<Player>& room = ret.value();
+        int oldSize = room.GetPlayerCount();
         room.RemovePlayer(player);
+        if (oldSize == room.GetPlayerCount())
+        {
+            Logger::Error("Remove Player Failed for : ", player.id);
+            return;
+        }
 
         // Garbage Collector lol
         if (room.IsEmpty())

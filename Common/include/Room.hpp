@@ -13,6 +13,7 @@
 #include <vector>
 #include <type_traits>
 #include <Result.hpp>
+#include <iostream> 
 
 enum RoomState {
     RoomState_Public,
@@ -99,12 +100,12 @@ public:
     }
 
     cpp::result<_Plr, int> GetPlayer(int id) const {
-        for (auto it = players.begin(); it != players.end(); ++it) {
-            if (it->id == id) {
-                return *it;
+        for (auto& player: players) {
+            if (player.id == id) {
+                return player;
             }
         }
-        return cpp::fail(-1);
+        return cpp::fail<int>(-1);
     }
     
     void SetPlayer(int id, _Plr player) {

@@ -59,11 +59,14 @@ protected:
         */
         Player player{(int)client->GetID()};
         auto room_ret = m_roomManager.GetRoomByPlayer(player);
-        if (room_ret.has_value())
+        if (room_ret.has_error())
         {
-            Logger::Info("Removing player from room @", room_ret.value().GetID());
-            m_roomManager.RemovePlayerFromRoom((int)client->GetID());
+            Logger::Error("Failed to get room by player @", client->GetID());
+            return;
         }
+        Logger::Info("Removing player from room @", room_ret.value().GetID());
+        m_roomManager.RemovePlayerFromRoom((int)client->GetID());
+
     }
 
     void OnMessage(std::shared_ptr<net::connection<TicMessages>> client, net::message<TicMessages> &message)

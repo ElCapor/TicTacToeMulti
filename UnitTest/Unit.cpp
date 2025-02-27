@@ -232,6 +232,7 @@ TEST_CASE("ROOM MANAGER SYSTEM", "[RoomManager]")
         REQUIRE(roomManager.GetAvailableRoomIndex() == 0);
         REQUIRE((roomManager.GetRoom(0).has_value() && roomManager.GetRoom(0).value().GetID() == 0));
         REQUIRE((roomManager.GetRoom(0).has_value() && roomManager.GetRoom(0).value().IsFull() == false));
+        REQUIRE((roomManager.GetRoomByPlayer(player1).has_value() && roomManager.GetRoomByPlayer(player1).value().GetID() == 0));
         roomManager.AssignNewRoomToPlayer(player2);
         REQUIRE(roomManager.GetAvailableRoomIndex() == -1);
         REQUIRE((roomManager.GetRoom(0).has_value() && roomManager.GetRoom(0).value().GetID() == 0));
