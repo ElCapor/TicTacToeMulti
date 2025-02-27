@@ -73,6 +73,7 @@ public:
         players.push_back(player);
     }
 
+
     void RemovePlayer(_Plr player) {
         // find player by id then remove it
         for (auto it = players.begin(); it != players.end(); ++it) {

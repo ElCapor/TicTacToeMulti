@@ -29,25 +29,6 @@ protected:
     bool OnClientConnect(std::shared_ptr<net::connection<TicMessages>> client) override
     {
         Logger::Debug(false, "[SERVER] Client Connected @", client->GetID());
-        auto msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerAccept);
-        client->Send(msg);
-
-        Player player{(int)client->GetID()};
-        auto room_ret = m_roomManager.AssignNewRoomToPlayer(player);
-        if (room_ret.has_error())
-        {
-            Logger::Error("Failed to assign room to player @", client->GetID());
-            msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerError);
-            client->Send(msg);
-            return false;
-        }
-        auto room = room_ret.value();
-        Logger::Info("Assigned room @", room.GetID());
-        msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerAssignedRoom);
-        msg << room.GetPlayerCount();
-        msg << room.GetID();
-        client->Send(msg);
-
         return true;
     }
 
@@ -65,7 +46,7 @@ protected:
             return;
         }
         Logger::Info("Removing player from room @", room_ret.value().GetID());
-        m_roomManager.RemovePlayerFromRoom((int)client->GetID());
+        m_roomManager.RemovePlayerFromRoom(player);
 
     }
 
@@ -80,6 +61,25 @@ protected:
     void OnClientValidated(std::shared_ptr<net::connection<TicMessages>> client)
     {
         Logger::Debug(false, "[SERVER] Validated Client @", client->GetID());
+        auto msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerAccept);
+        client->Send(msg);
+
+        Player player{ (int)client->GetID() };
+        auto room_ret = m_roomManager.AssignNewRoomToPlayer(player);
+        if (room_ret.has_error())
+        {
+            Logger::Error("Failed to assign room to player @", client->GetID());
+            msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerError);
+            client->Send(msg);
+            client->Disconnect();
+            OnClientDisconnect(client);
+        }
+        auto room = room_ret.value();
+        Logger::Info("Assigned room @", room.GetID());
+        msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerAssignedRoom);
+        msg << room.GetPlayerCount();
+        msg << room.GetID();
+        client->Send(msg);
     }
 };
 

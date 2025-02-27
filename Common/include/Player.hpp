@@ -15,7 +15,6 @@ struct Player
 {
     int id;
     using id_type = typename int;
-    Player(int id) : id(id) {}
 };
 
 

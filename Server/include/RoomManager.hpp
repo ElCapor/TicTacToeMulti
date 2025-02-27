@@ -61,11 +61,6 @@ public:
     {
         for (auto& room : m_rooms)
         {
-            for (auto& p : room.GetPlayers())
-            {
-                std::cout << p.id << " " << player.id << std::endl;
-                std::cout << room.GetPlayer(player.id).has_value() << std::endl;
-            }
             if (room.GetPlayer(player.id).has_value())
             {
                 return room;
