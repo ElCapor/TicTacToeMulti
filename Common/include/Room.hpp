@@ -88,6 +88,26 @@ public:
         return players;
     }
 
+    std::vector<_Plr> GetOthers(_Plr exclude) const {
+        std::vector<_Plr> others;
+        for (auto& player : players) {
+            if (player.id != exclude.id) {
+                others.push_back(player);
+            }
+        }
+        return others;
+    }
+
+    std::vector<_Plr> GetOthersById(int excludeId) const {
+        std::vector<_Plr> others;
+        for (auto& player : players) {
+            if (player.id != excludeId) {
+                others.push_back(player);
+            }
+        }
+        return others;
+    }
+
     void ClearPlayers() {
         players.clear();
     }

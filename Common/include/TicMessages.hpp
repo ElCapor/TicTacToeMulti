@@ -25,6 +25,8 @@ enum TicMessages {
 	TicMessages_ClientDisconnect, // client disconnected
 	TicMessages_ServerDisconnect, // server is going offline
 
+	TicMessages_ServerPlayerJoined, // Sent to other players when a player joins a rooms
+
 };
 
 #endif // TIC_MESSAGES_
