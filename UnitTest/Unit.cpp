@@ -180,7 +180,7 @@ TEST_CASE("ROOM SYSTEM", "[Room]")
 {
     struct Player{
         int id;
-        using id_type = typename int;
+        using id_type = int;
     };
 
     Room<Player> room(0,2);
@@ -220,7 +220,7 @@ TEST_CASE("ROOM MANAGER SYSTEM", "[RoomManager]")
 {
     RoomManager roomManager;
     REQUIRE(roomManager.GetAvailableRoomIndex() == 0);
-
+    
     Player player1{1};
     Player player2{2};
     Player player3{3};

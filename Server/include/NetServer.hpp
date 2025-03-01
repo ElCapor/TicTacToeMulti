@@ -61,7 +61,7 @@ protected:
     void DisconnectClientWithError(std::shared_ptr<net::connection<TicMessages>> client , Ty... args)
     {
         Logger::Error(args...);
-        msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerError);
+        auto msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerError);
         client->Send(msg);
         client->Disconnect();
         OnClientDisconnect(client);

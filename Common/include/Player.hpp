@@ -14,7 +14,7 @@
 struct Player
 {
     int id;
-    using id_type = typename int;
+    using id_type = int;
 };
 
 

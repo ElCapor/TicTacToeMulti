@@ -1,7 +1,6 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include <Windows.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
