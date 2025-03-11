@@ -14,6 +14,8 @@
 #include <Player.hpp>
 #include <vector>
 #include <Logger.hpp>
+#include <RoomEvents.hpp>
+#include <ErrorMacros.hpp>
 
 class RoomManager
 {
@@ -23,7 +25,7 @@ class RoomManager
 public:
     RoomManager(int maxRoomSize = 2) : maxRoomSize(maxRoomSize)
     {
-        CreateRoom();
+        RESULT_CHECK(CreateRoom());
     }
 
     int GetAvailableRoomIndex()
@@ -74,10 +76,15 @@ public:
         int idx = GetAvailableRoomIndex();
         if (idx == -1)
         {
-            CreateRoom();
+            RESULT_CHECK(CreateRoom());
             return AssignNewRoomToPlayer(player); // retry assigning a room in case there was not any available
         } else{
             m_rooms[idx].AddPlayer(player);
+            RoomEventManager::getInstance().SendEvent(new RoomPlayerJoinedEvent(player.id, m_rooms[idx].GetID()));
+            if (m_rooms[idx].IsFull())
+            {
+                RoomEventManager::getInstance().SendEvent(new RoomRoomFullEvent(m_rooms[idx].GetID()));
+            }
             return m_rooms[idx];
         }
         return cpp::fail(-1);
@@ -100,6 +107,7 @@ public:
             Logger::Error("Remove Player Failed for : ", player.id);
             return;
         }
+        RoomEventManager::getInstance().SendEvent(new RoomPlayerLeftEvent(player.id, room.GetID()));
 
         // Garbage Collector lol
         if (room.IsEmpty())

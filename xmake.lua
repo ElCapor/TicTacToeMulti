@@ -10,6 +10,7 @@ target("Common")
     add_includedirs("Common/include")
 
 target("Server")
+    set_symbols("debug")
     set_kind("binary")
     add_files("Server/**.cpp")
     add_includedirs("Network/include")
@@ -17,6 +18,7 @@ target("Server")
     add_includedirs("Server/include")
     add_packages("asio", "raylib")
     add_deps("Common")
+
 
 target("Client")
     add_includedirs("Common/include")

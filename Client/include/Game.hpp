@@ -37,9 +37,12 @@ public:
     void OnEvent(Event<NetEvents> *received) override;
 
 private:
+    void OnServerPing(ServerPingEvent *event);
     void OnConnectionEstablished(ConnectionEstablishedEvent *event);
     void OnConnectionLost(ConnectionLostEvent *event);
     void OnServerAssignedRoom(ServerAssignedRoomEvent *event);
+    void OnServerPlayerJoinedRoom(ServerPlayerJoinedRoomEvent *event);
+    void OnServerPlayerLeftRoom(ServerPlayerLeftRoomEvent *event);
     void OnRoomFull(RoomFullEvent *event);
     void OnServerGameStarted(ServerGameStartedEvent *event);
     void OnServerGameOtherPlayerPlaced(ServerGameOtherPlayerPlacedEvent *event);

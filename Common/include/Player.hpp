@@ -15,6 +15,17 @@ struct Player
 {
     int id;
     using id_type = int;
+
+    // == operator
+    bool operator==(const Player& other) const
+    {
+        return id == other.id;
+    }
+
+    bool operator!=(const Player& other) const
+    {
+        return !(*this == other);
+    }
 };
 
 

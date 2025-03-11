@@ -11,116 +11,73 @@
 #ifndef NET_SERVER_H
 #define NET_SERVER_H
 #include <Network.h>
-#include <TicMessages.hpp>
-#include <Logger.hpp>
-#include <RoomManager.hpp>
 #include <Player.hpp>
+#include <RoomManager.hpp>
+#include <TicMessages.hpp>
 #include <unordered_map>
+#include <Events.hpp>
 
-class NetServer : public net::server_interface<TicMessages>
+using MessageEnum = TicMessages;
+using Connection = net::connection<MessageEnum>;
+using client_type = std::shared_ptr<Connection>;
+
+using NetworkClient = client_type;
+using ServerInterface = net::server_interface<MessageEnum>;
+
+/** Server -> Client Messages **/
+using ServerMessage = net::message<MessageEnum>;
+
+/** Client -> Server Message **/
+using ClientMessage = net::message<MessageEnum>;
+
+/** Client <-> Server Message **/
+using ClientOrServerMessage = net::message<MessageEnum>;
+
+using PlayerRoom = Room<Player>;
+
+class NetServer : public ServerInterface, public EventListener<RoomEventEnum>
 {
-    RoomManager m_roomManager;
+/// MEMBERS ///
+  RoomManager m_roomManager;
+  std::unordered_map<std::uint32_t, Player> m_players;
 
-    std::unordered_map<std::uint32_t, Player> m_players;
+/// CONSTRUCTORS ///
 public:
-    NetServer(unsigned short port) : net::server_interface<TicMessages>(port)
-    {
-    }
+  NetServer(unsigned short port);
 
+/// HELPER FUNCTIONS ///
 protected:
-    cpp::result<Player&, int> GetPlayerForClient(std::shared_ptr<net::connection<TicMessages>> client)
-    {
-        if (m_players.find(client->GetID()) == m_players.end())
-        {
-            return cpp::fail(-1);
-        }
-        return m_players[client->GetID()];
-    }
+  cpp::result<Player &, int> GetPlayerForClient(NetworkClient client);
+  cpp::result<NetworkClient&, int> GetClientForPlayer(Player player);
+  
+  cpp::result<Player &, int> RegisterPlayer(std::uint32_t id, Player player);
+  cpp::result<int, int> UnregisterPlayer(std::uint32_t id);
+  template <typename... Ty>
+  void DisconnectClientWithError(NetworkClient client, Ty... args);
 
-    cpp::result<Player&, int> RegisterPlayer(std::uint32_t id, Player player)
-    {
-        if (m_players.find(id) != m_players.end())
-        {
-            return cpp::fail(-1);
-        }
-        m_players[id] = player;
-        return m_players[id];
-    }
+  template <typename... Args>
+  void Send(NetworkClient client, MessageEnum msgType, Args...);
 
-    cpp::result<void, int> UnregisterPlayer(std::uint32_t id)
-    {
-        if (m_players.find(id) == m_players.end())
-        {
-            return cpp::fail(-1);
-        }
-        m_players.erase(id);
-    }
+  ClientMessage New(MessageEnum msgType);
+  void Send(NetworkClient client, ClientMessage &message);
 
 
-    template <typename... Ty>
-    void DisconnectClientWithError(std::shared_ptr<net::connection<TicMessages>> client , Ty... args)
-    {
-        Logger::Error(args...);
-        auto msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerError);
-        client->Send(msg);
-        client->Disconnect();
-        OnClientDisconnect(client);
-    }
+  bool Is(ClientOrServerMessage message, MessageEnum msgType);
+/// EVENTS ///
+protected:
+  void OnPlayerJoinedRoom(RoomPlayerJoinedEvent *received);
+  void OnPlayerLeftRoom(RoomPlayerLeftEvent *received);
+  void OnRoomFull(RoomRoomFullEvent *received);
 
-    bool OnClientConnect(std::shared_ptr<net::connection<TicMessages>> client) override
-    {
-        Logger::Debug(false, "[SERVER] Client Connected @", client->GetID());
-        return true;
-    }
+/// SERVER FUNCTIONS ///
+public:
+  bool OnClientConnect(NetworkClient client) override;
+  void OnClientDisconnect(NetworkClient client) override;
+  void OnMessage(NetworkClient client, ClientMessage &message) override;
+  void OnClientValidated(NetworkClient client) override;
+  void OnEvent(RoomEvent *received) override;
+  void Start();
 
-    void OnClientDisconnect(std::shared_ptr<net::connection<TicMessages>> client) override
-    {
-        Logger::Info("Client Disconnected @", client->GetID());
-        /*
-        Remove player from room
-        */
-        Player player{(int)client->GetID()};
-        auto room_ret = m_roomManager.GetRoomByPlayer(player);
-        if (room_ret.has_error())
-        {
-            Logger::Error("Failed to get room by player @", client->GetID());
-            return;
-        }
-        Logger::Info("Removing player from room @", room_ret.value().GetID());
-        m_roomManager.RemovePlayerFromRoom(player);
-
-    }
-
-    void OnMessage(std::shared_ptr<net::connection<TicMessages>> client, net::message<TicMessages> &message)
-    {
-        if (message.header.id == TicMessages::TicMessages_ClientDisconnect)
-        {
-            OnClientDisconnect(client);
-        }
-    }
-
-    void OnClientValidated(std::shared_ptr<net::connection<TicMessages>> client)
-    {
-        Logger::Debug(false, "[SERVER] Validated Client @", client->GetID());
-        auto msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerAccept);
-        client->Send(msg);
-
-        Player player{(int)client->GetID()};
-        RegisterPlayer(client->GetID(), player);    
-
-        auto room_ret = m_roomManager.AssignNewRoomToPlayer(player);
-        if (room_ret.has_error())
-        {
-            DisconnectClientWithError(client, "Failed to assign room to player @", client->GetID());
-           
-        }
-        auto room = room_ret.value();
-        Logger::Info("Assigned room @", room.GetID());
-        msg = net::new_message<TicMessages>(TicMessages::TicMessages_ServerAssignedRoom);
-        msg << room.GetPlayerCount();
-        msg << room.GetID();
-        client->Send(msg);
-    }
 };
 
 #endif // NET_SERVER_H

@@ -15,15 +15,23 @@
 #include <Singleton.hpp>
 
 enum NetEvents {
+    ServerPing, // server ping
     ConnectionEstablished, // connection was estblished
     ConnectionLost, // connection was lost
     ServerAssignedRoom, // server assigned a room for client
+    ServerPlayerJoinedRoom, // a player joined our room
+    ServerPlayerLeftRoom, // a player left our room
     RoomFull, // room is full
     ServerGameStarted, // game started
     ServerGameOtherPlayerPlaced, // other player placed a tile
     ServerGameClientTurn, // client turn
-
     NetEvents_End // for iteration purposes
+};
+
+class ServerPingEvent: public Event<NetEvents>
+{
+    public:
+        ServerPingEvent() : Event(ServerPing) {}
 };
 
 class ConnectionEstablishedEvent: public Event<NetEvents>
@@ -53,6 +61,28 @@ class ServerAssignedRoomEvent: public Event<NetEvents>
 
         int GetPlayerCount() const {
             return playerCount;
+        }
+};
+
+class ServerPlayerJoinedRoomEvent: public Event<NetEvents>
+{
+    int playerID;
+    public:
+        ServerPlayerJoinedRoomEvent(int playerID) : Event(ServerPlayerJoinedRoom), playerID(playerID) {}
+
+        int GetPlayerID() const {
+            return playerID;
+        }
+};
+
+class ServerPlayerLeftRoomEvent: public Event<NetEvents>
+{
+    int playerID;
+    public:
+        ServerPlayerLeftRoomEvent(int playerID) : Event(ServerPlayerLeftRoom), playerID(playerID) {}
+
+        int GetPlayerID() const {
+            return playerID;
         }
 };
 
