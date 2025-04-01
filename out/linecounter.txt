@@ -1,0 +1,158 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2025-03-14 10:43:53
+count workspace : /home/acemax/Desktop/TicTacToeMulti
+total files : 130
+total code lines : 7390
+total comment lines : 2607
+total blank lines : 1284
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .hpp|           4408|           2230|            915|     60|
+   |           .cpp|            776|             66|            115|     11|
+   |            .md|             11|              0|              7|   0.15|
+   |             .h|            615|            311|            151|    8.3|
+   |          .json|             46|              0|              0|   0.62|
+   |          .conf|             34|              0|              2|   0.46|
+   |           .txt|              3|              0|              0|  0.041|
+   |          .lock|              0|              0|              0|    0.0|
+   |           .log|             11|              0|              0|   0.15|
+   |               |           1129|              0|             58|     15|
+   |             .d|            318|              0|             27|    4.3|
+   |           .lua|             39|              0|              9|   0.53|
+   -------------------------------------------------------------------------
+.cache/clangd/index/Client.cpp.ED1D93B7F545EE94.idx, it is a binary file.
+.cache/clangd/index/ErrorMacros.hpp.DEBDC4575CEF3D38.idx, it is a binary file.
+.cache/clangd/index/Events.hpp.5E43F33269D018A5.idx, it is a binary file.
+.cache/clangd/index/Game.cpp.BD8641509B24EF43.idx, it is a binary file.
+.cache/clangd/index/Game.hpp.413CECC83869B29D.idx, it is a binary file.
+.cache/clangd/index/GameState.hpp.D8236CAF28F48DB7.idx, it is a binary file.
+.cache/clangd/index/Logger.cpp.17923D4384B5F179.idx, it is a binary file.
+.cache/clangd/index/Logger.hpp.B9B7344C78C40C83.idx, it is a binary file.
+.cache/clangd/index/NetBase.h.1FCE25BF238209CF.idx, it is a binary file.
+.cache/clangd/index/NetClient.cpp.6FD12B3B8ED13A72.idx, it is a binary file.
+.cache/clangd/index/NetClient.hpp.91C82D7165814922.idx, it is a binary file.
+.cache/clangd/index/NetEvents.hpp.642FAF1E0E388C6B.idx, it is a binary file.
+.cache/clangd/index/NetExtension.h.2EE568C649FD4EBE.idx, it is a binary file.
+.cache/clangd/index/NetServer.cpp.D55CD91171E0CC81.idx, it is a binary file.
+.cache/clangd/index/NetServer.hpp.3F2AE45374845945.idx, it is a binary file.
+.cache/clangd/index/Network.h.70A6165A052DF2E0.idx, it is a binary file.
+.cache/clangd/index/Player.hpp.80C61ABD3105FC82.idx, it is a binary file.
+.cache/clangd/index/Result.hpp.9577C1862AF27944.idx, it is a binary file.
+.cache/clangd/index/Room.cpp.0DCCF0D1E0F2A8D4.idx, it is a binary file.
+.cache/clangd/index/Room.hpp.0E68CCA6BB7CF65E.idx, it is a binary file.
+.cache/clangd/index/RoomEvents.hpp.1F0C8329F5F264E8.idx, it is a binary file.
+.cache/clangd/index/RoomManager.hpp.0D1AA41859581B04.idx, it is a binary file.
+.cache/clangd/index/Server.cpp.AA13A29EDB1EFC11.idx, it is a binary file.
+.cache/clangd/index/Singleton.hpp.94632A1B58454371.idx, it is a binary file.
+.cache/clangd/index/TicMessages.hpp.A1F3B174E94A4822.idx, it is a binary file.
+.cache/clangd/index/Timer.cpp.1D5A5405B5A1F9FE.idx, it is a binary file.
+.cache/clangd/index/Timer.hpp.29F35F660D3FD6B6.idx, it is a binary file.
+.cache/clangd/index/Unit.cpp.B25B560CDE5B408A.idx, it is a binary file.
+.gitignore, code is 6, comment is 0, blank is 0.
+.xmake/linux/x86_64/cache/config, code is 11, comment is 0, blank is 0.
+.xmake/linux/x86_64/cache/cxxmodules, code is 1, comment is 0, blank is 0.
+.xmake/linux/x86_64/cache/detect, code is 635, comment is 0, blank is 40.
+.xmake/linux/x86_64/cache/history, code is 63, comment is 0, blank is 1.
+.xmake/linux/x86_64/cache/option, code is 1, comment is 0, blank is 0.
+.xmake/linux/x86_64/cache/package, code is 182, comment is 0, blank is 14.
+.xmake/linux/x86_64/cache/project, code is 1, comment is 0, blank is 0.
+.xmake/linux/x86_64/cache/references, code is 10, comment is 0, blank is 1.
+.xmake/linux/x86_64/cache/repository, code is 10, comment is 0, blank is 2.
+.xmake/linux/x86_64/cache/toolchain, code is 209, comment is 0, blank is 0.
+.xmake/linux/x86_64/project.lock, code is 0, comment is 0, blank is 0.
+.xmake/linux/x86_64/xmake.conf, code is 34, comment is 0, blank is 2.
+.xmake/vscode-build.log, code is 11, comment is 0, blank is 0.
+build/.build_cache/18/1888183b8e7e6ca09228d6614f46f3ab, it is a binary file.
+build/.build_cache/1b/1bf9f64227d4a5fee0ab1cb506986eac, it is a binary file.
+build/.build_cache/2d/2def36fe394d3474406b40ae05eabb31, it is a binary file.
+build/.build_cache/3e/3e15cad710ae5f6edb0d8fb577dbb578, it is a binary file.
+build/.build_cache/3e/3e926a0a3734f113bd0857433a2e96ed, it is a binary file.
+build/.build_cache/40/4035de15af34f947ee57038df92d0473, it is a binary file.
+build/.build_cache/4f/4f261e867fe0c4b14bfd1f0d399ead98, it is a binary file.
+build/.build_cache/53/53e39b5c08440eca1007ff4157861674, it is a binary file.
+build/.build_cache/5c/5c1cf2dfdbc04711465a7cfb71c3838a, it is a binary file.
+build/.build_cache/6e/6e3fffc278b889fa8419bbcf000bd916, it is a binary file.
+build/.build_cache/72/729f75e0c69268217fb5c3dae54bc349, it is a binary file.
+build/.build_cache/73/73b974f4312146e535b60dd04fc18da4, it is a binary file.
+build/.build_cache/81/8192361a62b518e7a6b6106a1e460745, it is a binary file.
+build/.build_cache/82/82e5c9985163719467f2a483bb6c9b10, it is a binary file.
+build/.build_cache/87/8717e7a82067141c370feba045428a8e, it is a binary file.
+build/.build_cache/a5/a5fbfc596aa811c7e8a351898b7dcc2a, it is a binary file.
+build/.build_cache/a7/a7ce8eca507a8888f39ff967f8432381, it is a binary file.
+build/.build_cache/aa/aad8dd1d84ad913756b803402a00759f, it is a binary file.
+build/.build_cache/c8/c87fd9558b7d7804c88eebf351522554, it is a binary file.
+build/.build_cache/d3/d393303c37a5d1941deed8ae6eb39feb, it is a binary file.
+build/.build_cache/db/dbb962c3ed17fd910d53f5ff78e0c12a, it is a binary file.
+build/.build_cache/db/dbb962c3ed17fd910d53f5ff78e0c12a.txt, code is 3, comment is 0, blank is 0.
+build/.build_cache/dd/ddb051ecd022d9911f4ac93e2424d9da, it is a binary file.
+build/.build_cache/e2/e26da10ffe75765a6adf7a1b04bd6490, it is a binary file.
+build/.build_cache/f1/f1dc123f211d385076831e25523e00f3, it is a binary file.
+build/.build_cache/f2/f2d1bb9ad4b79cc08eeea940d8270388, it is a binary file.
+build/.deps/Client/linux/x86_64/release/Client.d, code is 57, comment is 0, blank is 2.
+build/.deps/Client/linux/x86_64/release/Client/Client.cpp.o.d, code is 22, comment is 0, blank is 2.
+build/.deps/Client/linux/x86_64/release/Client/Game.cpp.o.d, code is 22, comment is 0, blank is 2.
+build/.deps/Client/linux/x86_64/release/Client/NetClient.cpp.o.d, code is 22, comment is 0, blank is 2.
+build/.deps/Common/linux/x86_64/release/Common/Logger.cpp.o.d, code is 16, comment is 0, blank is 2.
+build/.deps/Common/linux/x86_64/release/Common/Room.cpp.o.d, code is 16, comment is 0, blank is 2.
+build/.deps/Common/linux/x86_64/release/Common/Timer.cpp.o.d, code is 16, comment is 0, blank is 2.
+build/.deps/Common/linux/x86_64/release/libCommon.a.d, code is 10, comment is 0, blank is 2.
+build/.deps/Server/linux/x86_64/release/Server.d, code is 55, comment is 0, blank is 2.
+build/.deps/Server/linux/x86_64/release/Server.sym.d, code is 4, comment is 0, blank is 1.
+build/.deps/Server/linux/x86_64/release/Server/NetServer.cpp.o.d, code is 21, comment is 0, blank is 2.
+build/.deps/Server/linux/x86_64/release/Server/Server.cpp.o.d, code is 21, comment is 0, blank is 2.
+build/.deps/UnitTest/linux/x86_64/release/UnitTest.d, code is 16, comment is 0, blank is 2.
+build/.deps/UnitTest/linux/x86_64/release/UnitTest/Unit.cpp.o.d, code is 20, comment is 0, blank is 2.
+build/.objs/Client/linux/x86_64/release/Client/Client.cpp.o, it is a binary file.
+build/.objs/Client/linux/x86_64/release/Client/Game.cpp.o, it is a binary file.
+build/.objs/Client/linux/x86_64/release/Client/NetClient.cpp.o, it is a binary file.
+build/.objs/Common/linux/x86_64/release/Common/Logger.cpp.o, it is a binary file.
+build/.objs/Common/linux/x86_64/release/Common/Room.cpp.o, it is a binary file.
+build/.objs/Common/linux/x86_64/release/Common/Timer.cpp.o, it is a binary file.
+build/.objs/Server/linux/x86_64/release/Server/NetServer.cpp.o, it is a binary file.
+build/.objs/Server/linux/x86_64/release/Server/Server.cpp.o, it is a binary file.
+build/.objs/UnitTest/linux/x86_64/release/UnitTest/Unit.cpp.o, it is a binary file.
+build/compile_commands.json, code is 46, comment is 0, blank is 0.
+build/linux/x86_64/release/Client, it is a binary file.
+build/linux/x86_64/release/libCommon.a, it is a binary file.
+build/linux/x86_64/release/Server, it is a binary file.
+build/linux/x86_64/release/Server.sym, it is a binary file.
+build/linux/x86_64/release/UnitTest, it is a binary file.
+Client/Client.cpp, code is 7, comment is 10, blank is 1.
+Client/Game.cpp, code is 141, comment is 4, blank is 22.
+Client/include/Game.hpp, code is 37, comment is 11, blank is 5.
+Client/include/GameState.hpp, code is 17, comment is 11, blank is 2.
+Client/include/NetClient.hpp, code is 16, comment is 11, blank is 8.
+Client/include/NetEvents.hpp, code is 94, comment is 23, blank is 19.
+Client/NetClient.cpp, code is 83, comment is 4, blank is 15.
+Client/Readme.md, code is 3, comment is 0, blank is 2.
+Common/include/ErrorMacros.hpp, code is 17, comment is 8, blank is 2.
+Common/include/Events.hpp, code is 90, comment is 18, blank is 11.
+Common/include/Logger.hpp, code is 107, comment is 11, blank is 12.
+Common/include/Player.hpp, code is 16, comment is 12, blank is 5.
+Common/include/RaylibAssert.hpp, code is 223, comment is 176, blank is 30.
+Common/include/Result.hpp, code is 3430, comment is 1848, blank is 744.
+Common/include/Room.hpp, code is 118, comment is 18, blank is 28.
+Common/include/Singleton.hpp, code is 16, comment is 15, blank is 2.
+Common/include/TicMessages.hpp, code is 18, comment is 26, blank is 8.
+Common/Logger.cpp, code is 100, comment is 0, blank is 11.
+Common/Readme.md, code is 2, comment is 0, blank is 1.
+Common/Room.cpp, code is 0, comment is 0, blank is 0.
+Network/include/NetBase.h, code is 599, comment is 290, blank is 147.
+Network/include/NetExtension.h, code is 14, comment is 11, blank is 4.
+Network/include/Network.h, code is 2, comment is 10, blank is 0.
+Network/NetBase.cpp, code is 0, comment is 0, blank is 0.
+Network/Readme.md, code is 3, comment is 0, blank is 2.
+Server/include/NetServer.hpp, code is 48, comment is 19, blank is 17.
+Server/include/RoomEvents.hpp, code is 61, comment is 10, blank is 12.
+Server/include/RoomManager.hpp, code is 100, comment is 13, blank is 10.
+Server/NetServer.cpp, code is 216, comment is 22, blank is 31.
+Server/Readme.md, code is 3, comment is 0, blank is 2.
+Server/Server.cpp, code is 11, comment is 10, blank is 1.
+UnitTest/Unit.cpp, code is 218, comment is 16, blank is 34.
+xmake.lua, code is 39, comment is 0, blank is 9.
+===============================================================================

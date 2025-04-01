@@ -97,7 +97,11 @@ class ServerGameStartedEvent: public Event<NetEvents>
 {
     int turn; // if 0 then client else 1 if other player
     public:
-        ServerGameStartedEvent() : Event(ServerGameStarted) {}
+        ServerGameStartedEvent(int turn) : Event(ServerGameStarted), turn(turn) {}
+    
+    int GetTurn() const {
+        return turn;
+    }
 };
 
 class ServerGameOtherPlayerPlacedEvent: public Event<NetEvents>{

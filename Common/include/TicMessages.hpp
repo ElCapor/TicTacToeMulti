@@ -32,7 +32,17 @@ enum TicMessages {
   TicMessages_ClientRequestRoomInfo, // Client requests information about his room
   TicMessages_ServerRoomInfo,    // Server responds with information about room
   
-  TicMessages_ServerGameStart // Server decided that we should start
+  TicMessages_ServerGameStart, // Server decided that we should start
+  // After game start , game is handled by RoomGame class
+
+  // RoomGame
+  TicMessages_ClientMove, // Client requests to make a move
+
+  TicMessages_ServerMove, // Server replies with the move and replicate to other players in room
+
+  TicMessages_MaxRoomGameMessages
+  // End of RoomGame messages
+
 };
 
 #endif // TIC_MESSAGES_

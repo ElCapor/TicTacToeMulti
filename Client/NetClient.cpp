@@ -78,6 +78,12 @@ void NetClient::Update() {
         auto data = msg.msg;
         RoomFullEvent *event = new RoomFullEvent();
         NetEventsManager::getInstance().SendEvent(event);
+      } else if (Is(msg.msg, TicMessages_ServerGameStart)) {
+        auto data = msg.msg;
+        int turn;
+        data >> turn;
+        ServerGameStartedEvent *event = new ServerGameStartedEvent(turn);
+        NetEventsManager::getInstance().SendEvent(event);
       }
     }
   }

@@ -45,7 +45,7 @@ class Room
         has_int_id<_Plr>::value,
         "_Plr must have a member 'id' of type int"
     );
-private:
+protected:
     int id;
     int maxPlayers;
     std::vector<_Plr> players;

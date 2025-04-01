@@ -10,7 +10,7 @@
  */
 #ifndef ROOM_MANAGER_HPP
 #define ROOM_MANAGER_HPP
-#include <Room.hpp>
+#include <RoomGame.hpp>
 #include <Player.hpp>
 #include <vector>
 #include <Logger.hpp>
@@ -19,7 +19,7 @@
 
 class RoomManager
 {
-    std::vector<Room<Player>> m_rooms;
+    std::vector<RoomGame<Player>> m_rooms;
     int maxRoomIndex = -1;
     int maxRoomSize;
 public:

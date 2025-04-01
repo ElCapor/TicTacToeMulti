@@ -1,0 +1,926 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/home/acemax/Desktop/TicTacToeMulti",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2025-03-14 10:43:53",
+            "filesum": 130,
+            "codesum": 7390,
+            "commentsum": 2607,
+            "blanksum": 1284,
+            "statistics": {
+                ".hpp": {
+                    "code": 4408,
+                    "comment": 2230,
+                    "blank": 915
+                },
+                ".cpp": {
+                    "code": 776,
+                    "comment": 66,
+                    "blank": 115
+                },
+                ".md": {
+                    "code": 11,
+                    "comment": 0,
+                    "blank": 7
+                },
+                ".h": {
+                    "code": 615,
+                    "comment": 311,
+                    "blank": 151
+                },
+                ".json": {
+                    "code": 46,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".conf": {
+                    "code": 34,
+                    "comment": 0,
+                    "blank": 2
+                },
+                ".txt": {
+                    "code": 3,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".lock": {
+                    "code": 0,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".log": {
+                    "code": 11,
+                    "comment": 0,
+                    "blank": 0
+                },
+                "": {
+                    "code": 1129,
+                    "comment": 0,
+                    "blank": 58
+                },
+                ".d": {
+                    "code": 318,
+                    "comment": 0,
+                    "blank": 27
+                },
+                ".lua": {
+                    "code": 39,
+                    "comment": 0,
+                    "blank": 9
+                }
+            },
+            "filelist": [
+                {
+                    "filename": ".cache/clangd/index/Client.cpp.ED1D93B7F545EE94.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/ErrorMacros.hpp.DEBDC4575CEF3D38.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Events.hpp.5E43F33269D018A5.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Game.cpp.BD8641509B24EF43.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Game.hpp.413CECC83869B29D.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/GameState.hpp.D8236CAF28F48DB7.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Logger.cpp.17923D4384B5F179.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Logger.hpp.B9B7344C78C40C83.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/NetBase.h.1FCE25BF238209CF.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/NetClient.cpp.6FD12B3B8ED13A72.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/NetClient.hpp.91C82D7165814922.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/NetEvents.hpp.642FAF1E0E388C6B.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/NetExtension.h.2EE568C649FD4EBE.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/NetServer.cpp.D55CD91171E0CC81.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/NetServer.hpp.3F2AE45374845945.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Network.h.70A6165A052DF2E0.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Player.hpp.80C61ABD3105FC82.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Result.hpp.9577C1862AF27944.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Room.cpp.0DCCF0D1E0F2A8D4.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Room.hpp.0E68CCA6BB7CF65E.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/RoomEvents.hpp.1F0C8329F5F264E8.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/RoomManager.hpp.0D1AA41859581B04.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Server.cpp.AA13A29EDB1EFC11.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Singleton.hpp.94632A1B58454371.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/TicMessages.hpp.A1F3B174E94A4822.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Timer.cpp.1D5A5405B5A1F9FE.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Timer.hpp.29F35F660D3FD6B6.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": ".cache/clangd/index/Unit.cpp.B25B560CDE5B408A.idx",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/config"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/cxxmodules"
+                },
+                {
+                    "blank": 40,
+                    "code": 635,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/detect"
+                },
+                {
+                    "blank": 1,
+                    "code": 63,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/history"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/option"
+                },
+                {
+                    "blank": 14,
+                    "code": 182,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/package"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/project"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/references"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/repository"
+                },
+                {
+                    "blank": 0,
+                    "code": 209,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/cache/toolchain"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/project.lock"
+                },
+                {
+                    "blank": 2,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": ".xmake/linux/x86_64/xmake.conf"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": ".xmake/vscode-build.log"
+                },
+                {
+                    "filename": "build/.build_cache/18/1888183b8e7e6ca09228d6614f46f3ab",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/1b/1bf9f64227d4a5fee0ab1cb506986eac",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/2d/2def36fe394d3474406b40ae05eabb31",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/3e/3e15cad710ae5f6edb0d8fb577dbb578",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/3e/3e926a0a3734f113bd0857433a2e96ed",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/40/4035de15af34f947ee57038df92d0473",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/4f/4f261e867fe0c4b14bfd1f0d399ead98",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/53/53e39b5c08440eca1007ff4157861674",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/5c/5c1cf2dfdbc04711465a7cfb71c3838a",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/6e/6e3fffc278b889fa8419bbcf000bd916",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/72/729f75e0c69268217fb5c3dae54bc349",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/73/73b974f4312146e535b60dd04fc18da4",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/81/8192361a62b518e7a6b6106a1e460745",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/82/82e5c9985163719467f2a483bb6c9b10",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/87/8717e7a82067141c370feba045428a8e",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/a5/a5fbfc596aa811c7e8a351898b7dcc2a",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/a7/a7ce8eca507a8888f39ff967f8432381",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/aa/aad8dd1d84ad913756b803402a00759f",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/c8/c87fd9558b7d7804c88eebf351522554",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/d3/d393303c37a5d1941deed8ae6eb39feb",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/db/dbb962c3ed17fd910d53f5ff78e0c12a",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "build/.build_cache/db/dbb962c3ed17fd910d53f5ff78e0c12a.txt"
+                },
+                {
+                    "filename": "build/.build_cache/dd/ddb051ecd022d9911f4ac93e2424d9da",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/e2/e26da10ffe75765a6adf7a1b04bd6490",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/f1/f1dc123f211d385076831e25523e00f3",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.build_cache/f2/f2d1bb9ad4b79cc08eeea940d8270388",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 57,
+                    "comment": 0,
+                    "filename": "build/.deps/Client/linux/x86_64/release/Client.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "build/.deps/Client/linux/x86_64/release/Client/Client.cpp.o.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "build/.deps/Client/linux/x86_64/release/Client/Game.cpp.o.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "build/.deps/Client/linux/x86_64/release/Client/NetClient.cpp.o.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "build/.deps/Common/linux/x86_64/release/Common/Logger.cpp.o.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "build/.deps/Common/linux/x86_64/release/Common/Room.cpp.o.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "build/.deps/Common/linux/x86_64/release/Common/Timer.cpp.o.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "build/.deps/Common/linux/x86_64/release/libCommon.a.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 55,
+                    "comment": 0,
+                    "filename": "build/.deps/Server/linux/x86_64/release/Server.d"
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "build/.deps/Server/linux/x86_64/release/Server.sym.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "build/.deps/Server/linux/x86_64/release/Server/NetServer.cpp.o.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "build/.deps/Server/linux/x86_64/release/Server/Server.cpp.o.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "build/.deps/UnitTest/linux/x86_64/release/UnitTest.d"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "build/.deps/UnitTest/linux/x86_64/release/UnitTest/Unit.cpp.o.d"
+                },
+                {
+                    "filename": "build/.objs/Client/linux/x86_64/release/Client/Client.cpp.o",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.objs/Client/linux/x86_64/release/Client/Game.cpp.o",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.objs/Client/linux/x86_64/release/Client/NetClient.cpp.o",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.objs/Common/linux/x86_64/release/Common/Logger.cpp.o",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.objs/Common/linux/x86_64/release/Common/Room.cpp.o",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.objs/Common/linux/x86_64/release/Common/Timer.cpp.o",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.objs/Server/linux/x86_64/release/Server/NetServer.cpp.o",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.objs/Server/linux/x86_64/release/Server/Server.cpp.o",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/.objs/UnitTest/linux/x86_64/release/UnitTest/Unit.cpp.o",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 46,
+                    "comment": 0,
+                    "filename": "build/compile_commands.json"
+                },
+                {
+                    "filename": "build/linux/x86_64/release/Client",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/linux/x86_64/release/libCommon.a",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/linux/x86_64/release/Server",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/linux/x86_64/release/Server.sym",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/linux/x86_64/release/UnitTest",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 10,
+                    "filename": "Client/Client.cpp"
+                },
+                {
+                    "blank": 22,
+                    "code": 141,
+                    "comment": 4,
+                    "filename": "Client/Game.cpp"
+                },
+                {
+                    "blank": 5,
+                    "code": 37,
+                    "comment": 11,
+                    "filename": "Client/include/Game.hpp"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 11,
+                    "filename": "Client/include/GameState.hpp"
+                },
+                {
+                    "blank": 8,
+                    "code": 16,
+                    "comment": 11,
+                    "filename": "Client/include/NetClient.hpp"
+                },
+                {
+                    "blank": 19,
+                    "code": 94,
+                    "comment": 23,
+                    "filename": "Client/include/NetEvents.hpp"
+                },
+                {
+                    "blank": 15,
+                    "code": 83,
+                    "comment": 4,
+                    "filename": "Client/NetClient.cpp"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "Client/Readme.md"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 8,
+                    "filename": "Common/include/ErrorMacros.hpp"
+                },
+                {
+                    "blank": 11,
+                    "code": 90,
+                    "comment": 18,
+                    "filename": "Common/include/Events.hpp"
+                },
+                {
+                    "blank": 12,
+                    "code": 107,
+                    "comment": 11,
+                    "filename": "Common/include/Logger.hpp"
+                },
+                {
+                    "blank": 5,
+                    "code": 16,
+                    "comment": 12,
+                    "filename": "Common/include/Player.hpp"
+                },
+                {
+                    "blank": 30,
+                    "code": 223,
+                    "comment": 176,
+                    "filename": "Common/include/RaylibAssert.hpp"
+                },
+                {
+                    "blank": 744,
+                    "code": 3430,
+                    "comment": 1848,
+                    "filename": "Common/include/Result.hpp"
+                },
+                {
+                    "blank": 28,
+                    "code": 118,
+                    "comment": 18,
+                    "filename": "Common/include/Room.hpp"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 15,
+                    "filename": "Common/include/Singleton.hpp"
+                },
+                {
+                    "blank": 8,
+                    "code": 18,
+                    "comment": 26,
+                    "filename": "Common/include/TicMessages.hpp"
+                },
+                {
+                    "blank": 11,
+                    "code": 100,
+                    "comment": 0,
+                    "filename": "Common/Logger.cpp"
+                },
+                {
+                    "blank": 1,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "Common/Readme.md"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "Common/Room.cpp"
+                },
+                {
+                    "blank": 147,
+                    "code": 599,
+                    "comment": 290,
+                    "filename": "Network/include/NetBase.h"
+                },
+                {
+                    "blank": 4,
+                    "code": 14,
+                    "comment": 11,
+                    "filename": "Network/include/NetExtension.h"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 10,
+                    "filename": "Network/include/Network.h"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "Network/NetBase.cpp"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "Network/Readme.md"
+                },
+                {
+                    "blank": 17,
+                    "code": 48,
+                    "comment": 19,
+                    "filename": "Server/include/NetServer.hpp"
+                },
+                {
+                    "blank": 12,
+                    "code": 61,
+                    "comment": 10,
+                    "filename": "Server/include/RoomEvents.hpp"
+                },
+                {
+                    "blank": 10,
+                    "code": 100,
+                    "comment": 13,
+                    "filename": "Server/include/RoomManager.hpp"
+                },
+                {
+                    "blank": 31,
+                    "code": 216,
+                    "comment": 22,
+                    "filename": "Server/NetServer.cpp"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "Server/Readme.md"
+                },
+                {
+                    "blank": 1,
+                    "code": 11,
+                    "comment": 10,
+                    "filename": "Server/Server.cpp"
+                },
+                {
+                    "blank": 34,
+                    "code": 218,
+                    "comment": 16,
+                    "filename": "UnitTest/Unit.cpp"
+                },
+                {
+                    "blank": 9,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "xmake.lua"
+                }
+            ]
+        }
+    ]
+}

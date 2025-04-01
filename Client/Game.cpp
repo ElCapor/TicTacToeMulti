@@ -1,6 +1,9 @@
 #include <Game.hpp>
 #include <raylib.h>
 #include <NetEvents.hpp>
+#include <DrawableGrid.hpp>
+
+Texture2D DrawableGrid::gridTexture{};
 
 void Game::OnConnectionEstablished(ConnectionEstablishedEvent *event)
 {
@@ -30,10 +33,12 @@ void Game::OnServerPlayerLeftRoom(ServerPlayerLeftRoomEvent *event)
 void Game::OnRoomFull(RoomFullEvent *event)
 {
 	TraceLog(LOG_INFO, "Room Full");
+	m_GameState = GameState::WaitingForGameStart;
 }
 
 void Game::OnServerGameStarted(ServerGameStartedEvent *event)
 {
+	m_GameState = GameState::GameStart;
 }
 
 void Game::OnServerGameOtherPlayerPlaced(ServerGameOtherPlayerPlacedEvent *event)
@@ -73,13 +78,13 @@ void Game::OnEvent(Event<NetEvents> *received)
 		OnRoomFull((RoomFullEvent *)(received));
 		break;
 	case ServerGameStarted:
-	OnServerGameStarted((ServerGameStartedEvent *)(received));
+		OnServerGameStarted((ServerGameStartedEvent *)(received));
 		break;
 	case ServerGameOtherPlayerPlaced:
-	OnServerGameOtherPlayerPlaced((ServerGameOtherPlayerPlacedEvent *)(received));
+		OnServerGameOtherPlayerPlaced((ServerGameOtherPlayerPlacedEvent *)(received));
 		break;
 	case ServerGameClientTurn:
-	OnServerGameClientTurn((ServerGameClientTurnEvent *)(received));
+		OnServerGameClientTurn((ServerGameClientTurnEvent *)(received));
 		break;
 	}
 }
